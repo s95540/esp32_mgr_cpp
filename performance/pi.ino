@@ -12,23 +12,14 @@ double piGaussLegendre(long int n) {
   return pow(an + bn, 2) / (4.0 * tn);
 }
 
-void print_free_heap(const char* label){
-  Serial.print(label);
-  Serial.println(esp_get_free_heap_size());
-}
-
 void setup() {
   Serial.begin(115200);
-
-  print_free_heap("Before alg: ");
   
   long int iterations = 25;
 
   uint32_t startTimeMicros = micros();
   double result = piGaussLegendre(iterations);
   uint32_t endTimeMicros = micros();
-
-  print_free_heap("After alg: ");
   
   uint32_t executionTimeMicros = endTimeMicros - startTimeMicros;
   Serial.print("Execution time: ");

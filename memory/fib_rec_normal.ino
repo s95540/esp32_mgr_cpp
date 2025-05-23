@@ -9,6 +9,9 @@ int fibbonaci(int n){
 
 void print_free_heap(const char* label){
   Serial.print(label);
+  Serial.print("minimum free heap (bytes): ");
+  Serial.println(esp_get_minimum_free_heap_size());
+  Serial.print("current free heap (bytes): ");
   Serial.println(esp_get_free_heap_size());
 }
 
@@ -19,15 +22,9 @@ void setup() {
   
   const int fibonacciSeqIndex = 25;
   
-  uint32_t startTimeMicros = micros();
   int result = fibbonaci(fibonacciSeqIndex);
-  uint32_t endTimeMicros = micros();
   
   print_free_heap("Heap after alg:");
-
-  uint32_t executionTimeMicros = endTimeMicros - startTimeMicros;
-  Serial.print("Execution time (us): ");
-  Serial.println(executionTimeMicros);
 }
 
 void loop() {
