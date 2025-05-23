@@ -22,7 +22,7 @@ void setup() {
   
   print_free_heap("Before alg: ");
   
-  unsigned int n = 10 000;
+  unsigned int n = 10000;
   bool *tab = new bool[n + 1];
   for (unsigned int i = 0; i <= n; i++) {
     tab[i] = 0;

@@ -18,7 +18,7 @@ bool isPerfect(int n)
 void setup() {
   Serial.begin(115200);
  
-  int a = 92233;
+  int a = 9223372;
 
   uint32_t startTimeMicros = micros();
   bool result = isPerfect(a);
