@@ -1,5 +1,5 @@
 #include <Arduino.h>
-//algorytm.edu.pl
+
 bool isPerfect(int n)
 {
 	int s = 1, p = sqrt(n);
@@ -23,21 +23,18 @@ void print_free_heap(const char* label){
 void setup() {
   Serial.begin(115200);
 
+  print_free_heap("Heap before alg: ");
+ 
   int a = 92233;
-  bool result;
-
-  print_free_heap("Before alg: ");
 
   uint32_t startTimeMicros = micros();
-
-  result = isPerfect(a);
-
+  bool result = isPerfect(a);
   uint32_t endTimeMicros = micros();
 
-  print_free_heap("After alg: ");
+  print_free_heap("Heap after alg: ");
   
   uint32_t executionTimeMicros = endTimeMicros - startTimeMicros;
-  Serial.print("Execution time: ");
+  Serial.print("Execution time (us): ");
   Serial.println(executionTimeMicros);
 }
 

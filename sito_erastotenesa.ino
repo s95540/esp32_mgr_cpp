@@ -16,19 +16,17 @@ void print_free_heap(const char* label){
 
 void setup() {
   Serial.begin(115200);
-  unsigned int n = 10000;
+  
+  print_free_heap("Before alg: ");
+  
+  unsigned int n = 10 000;
   bool *tab = new bool[n + 1];
-
   for (unsigned int i = 0; i <= n; i++) {
     tab[i] = 0;
   }
-
-  print_free_heap("Before alg: ");
-
+  
   uint32_t startTimeMicros = micros();
-
   sieve(tab, n);
-
   uint32_t endTimeMicros = micros();
 
   print_free_heap("After alg: ");
@@ -38,7 +36,6 @@ void setup() {
   Serial.println(executionTimeMicros);  
 	
 	delete[] tab;
-
 }
 
 void loop() {

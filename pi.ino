@@ -1,4 +1,5 @@
 #include <Arduino.h>
+
 double piGaussLegendre(long int n) {
   long double an = 1.0, bn = 1.0 / sqrt(2), tn = 0.25, pn = 1.0, a_pom;
   while (n--) {
@@ -19,15 +20,12 @@ void print_free_heap(const char* label){
 void setup() {
   Serial.begin(115200);
 
-  long int iterations = 25;
-  double result;
-
   print_free_heap("Before alg: ");
+  
+  long int iterations = 25;
 
   uint32_t startTimeMicros = micros();
-
-  result = piGaussLegendre(iterations);
-
+  double result = piGaussLegendre(iterations);
   uint32_t endTimeMicros = micros();
 
   print_free_heap("After alg: ");
